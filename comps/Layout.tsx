@@ -1,11 +1,14 @@
 import NavBar from "./Navbar";
+import styles from "@/styles/Layout.module.scss";
 import { ChildrenTypes } from "@/types/ChildrenTypes";
 
 const Layout = ({ children }: ChildrenTypes): JSX.Element => {
   return (
-    <div>
-      <NavBar />
-      {children}
+    <div className={styles.container}>
+      <div className={styles.container__column}>
+        <NavBar />
+      </div>
+      <div className={styles.container__column}>{children}</div>
     </div>
   );
 };
