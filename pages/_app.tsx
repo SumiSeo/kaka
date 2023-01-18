@@ -1,4 +1,5 @@
-import "@/styles/globals.scss";
+import "@/styles/base/reset.scss";
+import "@/styles/base/globals.scss";
 import type { AppProps } from "next/app";
 import Layout from "@/comps/Layout";
 

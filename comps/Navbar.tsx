@@ -1,12 +1,12 @@
 import Link from "next/link";
 
-const Navbar = (): JSX.Element => {
+const NavBar = (): JSX.Element => {
   return (
     <div>
       <Link href="/">Home</Link>
-      <Link href="/guides">Guides</Link>
+      <Link href="/Guides">Guides</Link>
     </div>
   );
 };
 
-export default Navbar;
+export default NavBar;
