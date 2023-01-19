@@ -1,4 +1,4 @@
-import NavBar from "./Navbar";
+import NavBar from "./NavBar";
 import styles from "@/styles/Layout.module.scss";
 import { ChildrenTypes } from "@/types/ChildrenTypes";
 
