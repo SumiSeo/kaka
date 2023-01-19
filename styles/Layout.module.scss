@@ -9,5 +9,8 @@
       background-color: $default_yellow;
       padding: 3rem 2rem;
     }
+    &:last-child {
+      padding: 3rem 4rem;
+    }
   }
 }

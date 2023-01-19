@@ -5,10 +5,16 @@ const NavBar = (): JSX.Element => {
   return (
     <div className={styles.navigation}>
       <Link className={styles.navigation__list} href="/">
-        Home
+        <span></span>
       </Link>
       <Link className={styles.navigation__list} href="/Guides">
-        Guides
+        <span></span>
+      </Link>
+      <Link className={styles.navigation__list} href="/Guides">
+        <span></span>
+      </Link>
+      <Link className={styles.navigation__list} href="/Guides">
+        <span></span>
       </Link>
     </div>
   );
