@@ -3,7 +3,7 @@
   width: 100%;
   height: 100vh;
   display: grid;
-  grid-template-columns: 30rem 40rem;
+  grid-template-columns: 30rem 60rem;
   &__column {
     &:first-child {
       background-color: $default_yellow;
