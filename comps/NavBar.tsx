@@ -4,13 +4,19 @@ import AuthContext from "../stores/authContext";
 import styles from "@/styles/NavBar.module.scss";
 
 const NavBar = (): JSX.Element => {
-  const { user, login } = useContext(AuthContext);
+  const { user, login, logout } = useContext(AuthContext);
   console.log(user, login);
   return (
     <div className={styles.navigation}>
-      <Link onClick={login} className={styles.navigation__list} href="/">
-        <span></span>
-      </Link>
+      {user == null ? (
+        <Link onClick={login} className={styles.navigation__list} href="/">
+          <span></span>
+        </Link>
+      ) : (
+        <Link onClick={logout} className={styles.navigation__logout} href="/">
+          <span></span>
+        </Link>
+      )}
       <Link className={styles.navigation__list} href="/Expenses">
         <span></span>
       </Link>
