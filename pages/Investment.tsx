@@ -1,7 +1,7 @@
-const Guides = (): JSX.Element => {
+const Investment = (): JSX.Element => {
   return (
     <div>
-      <h1>Guides</h1>
+      <h1>Investment Detail</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non facere
         maiores veniam quis similique modi, earum, explicabo soluta, deserunt
@@ -12,4 +12,4 @@ const Guides = (): JSX.Element => {
   );
 };
 
-export default Guides;
+export default Investment;

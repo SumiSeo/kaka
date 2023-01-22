@@ -11,13 +11,13 @@ const NavBar = (): JSX.Element => {
       <Link onClick={login} className={styles.navigation__list} href="/">
         <span></span>
       </Link>
-      <Link className={styles.navigation__list} href="/Guides">
+      <Link className={styles.navigation__list} href="/Expenses">
         <span></span>
       </Link>
-      <Link className={styles.navigation__list} href="/Guides">
+      <Link className={styles.navigation__list} href="/Incomes">
         <span></span>
       </Link>
-      <Link className={styles.navigation__list} href="/Guides">
+      <Link className={styles.navigation__list} href="/Investment">
         <span></span>
       </Link>
     </div>
