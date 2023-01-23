@@ -1,31 +1,53 @@
 import AuthContext from "@/stores/authContext";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 
 const Expenses = (): JSX.Element => {
   const { user, authReady } = useContext(AuthContext);
+  const [expenses, setExpenses] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     if (authReady) {
       fetch(
         "/.netlify/functions/expenses",
-        user && {
-          headers: {
-            Authorization: "Bearer " + user?.token?.access_token,
-          },
-        }
+        user
+          ? {
+              headers: {
+                Authorization: "Bearer " + user?.token?.access_token,
+              },
+            }
+          : {
+              headers: {
+                Authorization: "Bearer ",
+              },
+            }
       )
-        .then((response) => response.json())
-        .then((data) => console.log(data));
+        .then((response) => {
+          if (!response.ok) {
+            throw Error("You must be logged in to view this content");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          setExpenses(data);
+          setError(null);
+        })
+        .catch((err) => {
+          setError(err.message);
+          setExpenses(null);
+        });
     }
   }, [user, authReady]);
   return (
     <div>
       <h1>Expenses Detail</h1>
+      <p>{!authReady && <div>Loading...</div>}</p>
+      <p>{error && <div>{error}</div>}</p>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non facere
-        maiores veniam quis similique modi, earum, explicabo soluta, deserunt
-        perferendis at commodi vel accusamus molestiae. Quo repellendus rem
-        consequuntur molestiae!
+        {expenses &&
+          expenses?.map((expense: any) => (
+            <div key={expense.name}>{expense.name}</div>
+          ))}
       </p>
     </div>
   );
