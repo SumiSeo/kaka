@@ -1,11 +1,23 @@
-import { useEffect } from "react";
+import AuthContext from "@/stores/authContext";
+import { useContext, useEffect } from "react";
 
 const Expenses = (): JSX.Element => {
+  const { user, authReady } = useContext(AuthContext);
+
   useEffect(() => {
-    fetch("/.netlify/functions/kaka")
-      .then((response) => response.json())
-      .then((data) => console.log(data));
-  }, []);
+    if (authReady) {
+      fetch(
+        "/.netlify/functions/expenses",
+        user && {
+          headers: {
+            Authorization: "Bearer " + user?.token?.access_token,
+          },
+        }
+      )
+        .then((response) => response.json())
+        .then((data) => console.log(data));
+    }
+  }, [user, authReady]);
   return (
     <div>
       <h1>Expenses Detail</h1>
