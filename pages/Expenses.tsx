@@ -1,4 +1,11 @@
+import { useEffect } from "react";
+
 const Expenses = (): JSX.Element => {
+  useEffect(() => {
+    fetch("/.netlify/functions/kaka")
+      .then((response) => response.json())
+      .then((data) => console.log(data));
+  }, []);
   return (
     <div>
       <h1>Expenses Detail</h1>
